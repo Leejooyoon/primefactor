@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: prime_factor
+  labels:
+    app: prime_factor
+spec:
+  selector:
+    matchLabels:
+      app: prime_factor
+      tier: web
+  template:
+    metadata:
+      labels:
+        app: prime_factor
+        tier: web
+    spec:
+      containers:
+      - name: prime_factor
+        image: gcr.io/asia-northeast1-b/prime_factor:v2
+        ports:
+        - containerPort: 8080
